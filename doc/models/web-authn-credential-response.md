@@ -1,0 +1,77 @@
+
+# Web Authn Credential Response
+
+WebAuthn Credential API response
+
+## Structure
+
+`WebAuthnCredentialResponse`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `credential` | [`WebAuthnCredential \| undefined`](../../doc/models/web-authn-credential.md) | Optional | A User's WebAuthnCredential. Contains all data required to complete WebAuthn authentication ceremonies. |
+| `credentials` | [`WebAuthnCredential[] \| undefined`](../../doc/models/web-authn-credential.md) | Optional | - |
+
+## Example (as JSON)
+
+```json
+{
+  "credential": {
+    "algorithm": "PS256",
+    "attestationType": "none",
+    "authenticatorSupportsUserVerification": false,
+    "credentialId": "credentialId6",
+    "data": {
+      "key0": {
+        "key1": "val1",
+        "key2": "val2"
+      },
+      "key1": {
+        "key1": "val1",
+        "key2": "val2"
+      },
+      "key2": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    }
+  },
+  "credentials": [
+    {
+      "algorithm": "PS512",
+      "attestationType": "none",
+      "authenticatorSupportsUserVerification": false,
+      "credentialId": "credentialId6",
+      "data": {
+        "key0": {
+          "key1": "val1",
+          "key2": "val2"
+        },
+        "key1": {
+          "key1": "val1",
+          "key2": "val2"
+        }
+      }
+    },
+    {
+      "algorithm": "PS512",
+      "attestationType": "none",
+      "authenticatorSupportsUserVerification": false,
+      "credentialId": "credentialId6",
+      "data": {
+        "key0": {
+          "key1": "val1",
+          "key2": "val2"
+        },
+        "key1": {
+          "key1": "val1",
+          "key2": "val2"
+        }
+      }
+    }
+  ]
+}
+```
+
