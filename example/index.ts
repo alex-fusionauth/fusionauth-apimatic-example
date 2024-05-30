@@ -5,22 +5,22 @@ const client = new FusionAuthClient(
   'this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works',
   'http:localhost:9011'
 );
-// client
-//   .retrieveUserByEmail('richard@example.com')
-//   .then((clientResponse) => {
-//     console.log(
-//       'Old Example User:',
-//       JSON.stringify(clientResponse.response.user, null, 2)
-//     );
-//   })
-//   .catch(console.error);
+client
+  .retrieveUserByEmail('richard@example.com')
+  .then((clientResponse) => {
+    console.log(
+      'Old Example User:',
+      JSON.stringify(clientResponse.response.user, null, 2)
+    );
+  })
+  .catch(console.error);
 
-//   client
-//   .retrieveUserByChangePasswordId('example')
-//   .then((clientResponse) => {
-//     console.log('User:', JSON.stringify(clientResponse.response.user, null, 2));
-//   })
-//   .catch(console.error);
+client
+  .retrieveUserByChangePasswordId('changePasswordId')
+  .then((clientResponse) => {
+    console.log('User:', JSON.stringify(clientResponse.response.user, null, 2));
+  })
+  .catch(console.error);
 
 //APIMatic client example
 
@@ -38,7 +38,28 @@ const client2 = new Client({
 const userController = new UserController(client2);
 userController
   .retrieveUserByChangePasswordIdByEmailByLoginIdByUsernameByVerificationIdUsingJWT(
-    'richard@example.com'
+    undefined,
+    undefined,
+    'richard@example.com',
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  )
+  .then((clientResponse) => {
+    console.log('User:', JSON.stringify(clientResponse.result.user, null, 2));
+  })
+  .catch(console.error);
+
+userController
+  .retrieveUserByChangePasswordIdByEmailByLoginIdByUsernameByVerificationIdUsingJWT(
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    'changePasswordId',
+    undefined
   )
   .then((clientResponse) => {
     console.log('User:', JSON.stringify(clientResponse.result.user, null, 2));
